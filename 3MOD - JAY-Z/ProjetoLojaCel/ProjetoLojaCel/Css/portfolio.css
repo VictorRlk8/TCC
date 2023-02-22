@@ -1,0 +1,61 @@
+/*Titulo*/
+.portfolio {
+    margin-top: -75px;
+}
+
+.heading-title {
+    color: #9119D1;
+    text-align: center;
+    margin-top: 5px;
+    padding: 9px;
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-left: -68px;
+}
+/*Imagem*/
+.portfolio-img {
+    margin-left: -57px;
+    margin-top: 78px;
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+}
+
+b {
+    font-size: 17px;
+}
+
+.p1 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.textTodos {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.text1 {
+    margin-left: 800px;
+    margin-top: -368px;
+    align-items: center;
+    position: absolute;
+}
+
+.text2 {
+    margin-left: 800px;
+    margin-top: -270px;
+    align-items: center;
+    position: absolute;
+}
+
+.text3 {
+    margin-left: 800px;
+    margin-top: -122px;
+    align-items: center;
+    position: absolute;
+}

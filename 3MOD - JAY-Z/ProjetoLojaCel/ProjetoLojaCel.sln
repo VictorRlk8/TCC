@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoLojaCel", "ProjetoLojaCel\ProjetoLojaCel.csproj", "{D11918C4-29DF-45A1-B9EE-C7D19ED7BDC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icon", "Icon", "{CE51B9F3-8152-42FC-83C3-2451C5E0CC24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D11918C4-29DF-45A1-B9EE-C7D19ED7BDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11918C4-29DF-45A1-B9EE-C7D19ED7BDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11918C4-29DF-45A1-B9EE-C7D19ED7BDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11918C4-29DF-45A1-B9EE-C7D19ED7BDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E701E4A0-3948-4FEF-93F5-2C052A65182A}
+	EndGlobalSection
+EndGlobal

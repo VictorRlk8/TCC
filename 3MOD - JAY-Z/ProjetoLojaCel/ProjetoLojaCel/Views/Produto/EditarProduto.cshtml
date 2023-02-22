@@ -1,0 +1,114 @@
+﻿@model ProjetoLojaCel.Models.ModelProduto
+
+@{
+    ViewBag.Title = "EditarProduto";
+}
+
+<h2>Editar Produto</h2>
+
+<div class="center">
+    @using (Html.BeginForm("EditarProduto", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.NmProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NmProd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NmProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.DescricaoProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DescricaoProd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DescricaoProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.VlProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VlProd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VlProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.MarcaProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MarcaProd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MarcaProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.EstoqueProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EstoqueProd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EstoqueProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div>
+                @Html.LabelFor(model => model.ImagemProd, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <br />
+            <div>
+                @Html.EditorFor(model => model.ImagemProd, new { htmlAttributes = new { type = "file" } })
+                @Html.ValidationMessageFor(model => model.ImagemProd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.CodTipoProduto, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownList("tipoProduto", "Escolha a tipo do produto")
+                @Html.ValidationMessageFor(model => model.CodTipoProduto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group center">
+            <div class="col-md-10">
+                @ViewBag.msg <br />
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Salvar Produto" class="btn btn-success" />
+                        </div>
+                    </div>
+                </td>
+                <td> &nbsp; &nbsp; &nbsp; </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Voltar", "ConsProduto", "Produto", new { @class = "btn btn-succes" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

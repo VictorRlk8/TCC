@@ -1,0 +1,284 @@
+﻿@model ProjetoLojaCel.Models.ModelCadastro
+
+@{
+    ViewBag.Title = "Cadastro";
+
+List<string> Sexo = new List<string>();
+        Sexo.Add("Masculino");
+        Sexo.Add("Feminino");
+
+        //List<int> Tipo = new List<int>();
+        //Tipo.Add(1);
+        //Tipo.Add(2);
+
+        List<string> Estado = new List<string>();
+        Estado.Add("AC");
+        Estado.Add("AL");
+        Estado.Add("AP");
+        Estado.Add("AM");
+        Estado.Add("BA");
+        Estado.Add("CE");
+        Estado.Add("DF");
+        Estado.Add("ES");
+        Estado.Add("GO");
+        Estado.Add("MA");
+        Estado.Add("MT");
+        Estado.Add("MS");
+        Estado.Add("MG");
+        Estado.Add("PA");
+        Estado.Add("PB");
+        Estado.Add("PR");
+        Estado.Add("PE");
+        Estado.Add("PI");
+        Estado.Add("RJ");
+        Estado.Add("RN");
+        Estado.Add("RS");
+        Estado.Add("RO");
+        Estado.Add("RR");
+        Estado.Add("SC");
+        Estado.Add("SP");
+        Estado.Add("SE");
+        Estado.Add("TO");
+    }
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="~/JavaScript/js.js"></script>
+
+<style>
+    .cadastro {
+        margin-top: -35px;
+        border: 1px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #9119D1;
+    }
+
+        .cadastro .texto {
+            background-color: #9119D1;
+            padding-top: 10px;
+            padding-bottom: 1px;
+            padding-left: 15px;
+            border-radius: 9px 9px 0px 0px;
+            color: #fff;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+    .cadastro .texto h4 {
+        font-size: 20px;
+    }
+
+    .cadcli {
+        padding-left: 50px;
+        padding-right: 30px;
+        padding-top: 15px;
+    }
+
+    .p1 {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 22px;
+        color: #9119d1;
+        padding-top: 27px;
+        padding-bottom: 35px;
+        padding-left: 50px;
+    }
+
+    .p2 {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 22px;
+        color: #9119d1;
+        padding-top: 15px;
+        padding-bottom: 35px;
+    }
+
+    .obrigatorio {
+        margin-left: 960px;
+        margin-top: -45px;
+        padding-right: 50px;
+    }
+
+    .obrigatorio h11 {
+        color: red;
+    }
+
+    .nome {
+        width: 100px;
+    }
+
+    .nasc {
+        float: right;
+        margin-right: 484px;
+        margin-top: -79px;
+    }
+
+    .sex {
+        float: right;
+        width: 152px;
+        margin-right: 206px;
+        margin-top: -79px;
+    }
+
+    .email {
+        float: right;
+        width: 280px;
+        margin-right: 402px;
+        margin-top: -79px;
+    }
+
+    .tel {
+        float: right;
+        width: 280px;
+        margin-right: 402px;
+        margin-top: -79px;
+    }
+
+    .numero {
+        float: right;
+        width: 280px;
+        margin-right: 402px;
+        margin-top: -79px;
+    }
+
+    .cep {
+        float: right;
+        width: 105px;
+        margin-right: 192px;
+        margin-top: -79px;
+    }
+
+    .estado {
+        float: right;
+        width: 280px;
+        margin-right: 402px;
+        margin-top: -79px;
+    }
+
+    .senha {
+        float: right;
+        width: 280px;
+        margin-right: 402px;
+        margin-top: -79px;
+    }
+
+</style>
+
+    @using (Html.BeginForm("Cadastro", "Login", FormMethod.Post))
+    {
+        <div class="cadastro">
+            <div class="texto">
+                <h4> Cadastro de Clientes </h4>
+            </div>
+            <div>
+                <p class="p1"> Dados Pessoais </p>
+            </div>
+            <div class="obrigatorio">
+            </div>
+            <div class="cadcli">
+                <div class="nome"></div>
+                @Html.LabelFor(m => m.NomeCli)
+                <br />
+                @Html.EditorFor(m => m.NomeCli, new { htmlAttributes = new { @class = "form-control", required = "required", maxLength = "100", placeholder = "Nome completo" } })
+                <br />
+                <div class="nasc">
+                    @Html.LabelFor(m => m.DataNascCli)
+                    <br />
+                    @Html.EditorFor(m => m.DataNascCli, new { htmlAttributes = new { @class = "form-control", placeholder = "__/__/____", type = "text", OnKeyPress = "formatar('##/##/####', this)", maxLength = "10", onBlur = "showhide()" } })
+                    <br />
+                </div>
+                <div class="sex">
+                    @Html.LabelFor(m => m.SexoCli)
+                    <br />
+                    @Html.DropDownListFor(m => m.SexoCli, new MultiSelectList(Sexo), new { @class = "form-control", required = "required" })
+                    <br />
+                </div>
+                @Html.LabelFor(m => m.CpfCli)
+                <br />
+                @Html.EditorFor(m => m.CpfCli, new { htmlAttributes = new { @class = "form-control", placeholder = "___.___.___-__", OnKeyPress = "formatar('###.###.###-##', this)", maxLength = "14", required = "required" } })
+                <br />
+                <div class="email">
+                    @Html.LabelFor(m => m.EmailCli)
+                    <br />
+                    @Html.EditorFor(m => m.EmailCli, new { htmlAttributes = new { @class = "form-control", placeholder = "email@email.com", required = "required" } })
+                    <br />
+                </div>
+                @Html.LabelFor(m => m.CelularCli)
+                <br />
+                @Html.EditorFor(m => m.CelularCli, new { htmlAttributes = new { @class = "form-control", placeholder = "(__) _____-____", OnKeyPress = "formatar('## #####-####', this)", maxLength = "13" } })
+                <br />
+                <div class="tel">
+                    @Html.LabelFor(m => m.TelefoneCli)
+                    <br />
+                    @Html.EditorFor(m => m.TelefoneCli, new { htmlAttributes = new { @class = "form-control", placeholder = "(__) ____-____", OnKeyPress = "formatar('## ####-####', this)", maxLength = "12" } })
+                    <br />
+                </div>
+                <hr />
+                <div class="endereco">
+                    <p class="p2"> Endereço </p>
+                </div>
+                @Html.LabelFor(m => m.EnderecoCli)
+                <br />
+                @Html.EditorFor(m => m.EnderecoCli, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                <br />
+                <div class="numero">
+                    @Html.LabelFor(m => m.NumeroCasaCli)
+                    <br />
+                    @Html.EditorFor(m => m.NumeroCasaCli, new { htmlAttributes = new { @class = "form-control", type = "text", required = "required" } })
+                    <br />
+                </div>
+                <div class="cep">
+                    @Html.LabelFor(m => m.CepCli)
+                    <br />
+                    @Html.EditorFor(m => m.CepCli, new { htmlAttributes = new { @class = "form-control", OnKeyPress = "formatar('#####-###', this)", placeholder = "_____-___", maxLength = "9", required = "required" } })
+                    <br />
+                </div>
+                @Html.LabelFor(m => m.NmBairro)
+                <br />
+                @Html.EditorFor(m => m.NmBairro, new { htmlAttributes = new { @class = "form-control" }, required = "required" })
+                <br />
+                <div class="estado">
+                    @Html.LabelFor(m => m.NmEstado, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    <br />
+                    @Html.DropDownListFor(m => m.NmEstado, new MultiSelectList(Estado), new { @class = "form-control", required = "required" })
+                    <br />
+                </div>
+                <hr />
+                <div>
+                    <p class="p2"> Login </p>
+                </div>
+                @Html.LabelFor(m => m.usuario)
+                <br />
+                @Html.EditorFor(m => m.usuario, new { htmlAttributes = new { @class = "form-control", required = "required", maxLength = "15" } })
+                <br />
+                <div class="senha">
+                    @Html.LabelFor(m => m.senha)
+                    <br />
+                    @Html.EditorFor(m => m.senha, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required", maxLength = "16" } })
+                    <br />
+                </div>
+                <br />
+                <br />
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Enviar" class="btn btn-success" />
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    @Html.ActionLink("Voltar", "Index", "Login", new { @class = "btn btn-succes" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+    }
+

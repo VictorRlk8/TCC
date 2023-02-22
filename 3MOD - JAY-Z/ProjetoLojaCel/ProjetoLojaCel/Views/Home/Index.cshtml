@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ProjetoLojaCel.Models.ModelProduto>
+
+@{
+    ViewBag.Title = "Loja Cel";
+}
+
+<link rel="stylesheet" href="~/Css/lojacel.css">
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="carouselSlide">
+    <div class="slider">
+        <div class="slides">
+            <!-- Radio Buttons-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <!-- Fim Radio Buttons-->
+            <!-- Slide images-->
+            <div class="slide first">
+                <img src="~/Imagens/iphone.jpg" alt="Imagem 1" />
+            </div>
+            <div class="slide">
+                <img src="~/Imagens/s22.jpeg" alt="Imagem 2" />
+            </div>
+            <div class="slide">
+                <img src="~/Imagens/xiaomi.png" alt="Imagem 3" />
+            </div>
+            <!-- Fim Slide images-->
+            <!-- Navigation auto-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+        </div>
+
+        <div class="manual-navigation">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
+</div>
+<hr />
+<h2>Celulares e Acessórios</h2>
+<script src="~/JavaScript/js.js"></script>
+<div class="espacamentoCel">
+    <div class="row center">
+        <div class="col-lg-9">
+            <div class="espacamentoCel2">
+                 @foreach (var item in Model)
+                  {
+                      <div class="col-lg-3 col-md-6 mb-4">
+                           <div class="card h-100" style="border-style: none;">
+                                <a href="/Produto/Detalhes/@item.CodProd">
+                                    @if (@item.ImagemProd != null)
+                                    {<img alt="Thumbnail [150x175]" style="width: 150px; height: 175px; " src="@item.ImagemProd" data-holder-rendered="true">}
+                                    else
+                                    {<img alt="Thumbnail [150x175]" style="width: 150px; height: 175px; " src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="@item.ImagemProd" style="align-items: center" disabled>@item.NmProd</a>
+                                    </h4>
+                                    <h5>R$ @item.VlProd</h5>
+                                </div>
+                                <div class="card-footer space-between-flex" style="width:90%">
+                                    <div>
+                                        @using (Html.BeginForm("AdicionarCarrinho", "Home", FormMethod.Post))
+                                        {
+                                            <input type="hidden" name="id" value=@item.CodProd>
+                                            <input type="hidden" name="pre" value=@item.VlProd>
+                                            <input type="hidden" name="quantidade" value="1">
+                                            <button type="submit" class="btn btn-default btn-acao-primario">Comprar</button>
+                                        }
+                                    </div>
+                                </div>
+                           </div>
+                      </div>
+                  }
+            </div>
+        </div>
+    </div>
+</div>

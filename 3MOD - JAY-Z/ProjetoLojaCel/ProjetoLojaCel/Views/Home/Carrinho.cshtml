@@ -1,0 +1,85 @@
+﻿@model ProjetoLojaCel.Models.ModelCarrinho
+
+@{
+    ViewBag.Title = "Carrinho";
+}
+
+<style>
+    td .mais {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .carrinho {
+        margin-top: -85px;
+    }
+
+    .car {
+        font-size: 15px;
+        font-family: sans-serif;
+        font-weight: 500;
+    }
+
+    .p1 {
+        font-size: 20px;
+        font-family: sans-serif;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 40px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #9119D1;
+        padding-bottom: 50px;
+    }
+</style>
+
+<div class="carrinho">
+    <h4 >Carrinho</h4>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Valor Unitário</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.ItensPedido)
+        {
+
+            <tr>
+                <td>@item.Produto</td>
+                <td><input type="number" value="@item.Qtd" /></td>
+                <td>R$ @item.valorUnit</td>
+                <td>R$ @item.valorParcial</td>
+                <td><a class="mais">@Html.ActionLink("+", "MaisProduto", new { id = item.ItemPedidoID }, null)</a></td>
+                <td class="menos">@Html.ActionLink("-", "MenosProduto", new { id = item.ItemPedidoID }, null)</td>
+                <td>@Html.ActionLink("Remover", "ExcluirItem", new { id = item.ItemPedidoID }, null)</td>
+            </tr>
+        }
+
+    </table>
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br />
+    <div class="carrinho">
+        <div class="car">
+            @Html.ActionLink("Continuar Comprando", "Index", "Home")
+        </div>
+        @foreach (var item in Model.ItensPedido)
+        {
+            <div class="car">
+                @Html.ActionLink("Finalizar Compra", "SalvarCarrinho", "Home", new { id = item.ItemPedidoID }, null)
+            </div>
+        }
+        <br />
+        <p class="p1"> Valor Total: R$ @Model.VlCompra </p>
+    </div>
+    <br /><br /><br />
+    
+</div>

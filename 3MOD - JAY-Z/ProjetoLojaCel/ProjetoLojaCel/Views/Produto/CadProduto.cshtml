@@ -1,0 +1,69 @@
+﻿@model ProjetoLojaCel.Models.ModelProduto
+
+@{
+    ViewBag.Title = "Cadastrar Novo Produto";
+}
+
+<h2 style="text-align:center;">Novo produto</h2>
+
+<div class="center">
+    @using (Html.BeginForm("CadProduto", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.LabelFor(m => m.NmProd)
+        <br />
+        @Html.EditorFor(m => m.NmProd)
+        <br />
+        @Html.LabelFor(m => m.DescricaoProd)
+        <br />
+        @Html.EditorFor(m => m.DescricaoProd)
+        <br />
+        @Html.LabelFor(m => m.VlProd)
+        <br />
+        @Html.EditorFor(m => m.VlProd)
+        <br />
+        @Html.LabelFor(m => m.MarcaProd)
+        <br />
+        @Html.EditorFor(m => m.MarcaProd)
+        <br />
+        @Html.LabelFor(m => m.EstoqueProd)
+        <br />
+        @Html.EditorFor(m => m.EstoqueProd)
+        <br />
+        <div>
+            <div>
+                <label for="file">Imagem do Produto</label>
+            </div>
+            <br />
+            <div>
+                <input type="file" name="file" id="file" /> <br />
+            </div>
+        </div>
+        <br />
+        @Html.LabelFor(m => m.CodTipoProduto)
+        <br />
+        @Html.DropDownList("tipoProduto", "Escolha a tipo do produto")
+        <br />
+        <br />
+        <br />
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Enviar" class="btn btn-success" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="reset" value="Apagar" class="btn btn-success" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+

@@ -1,0 +1,35 @@
+/*Titulo*/
+.portfolio {
+    margin-top: 10px;
+}
+
+.heading-title {
+    color: #9119D1;
+    text-align: center;
+    margin-top: 5px;
+    padding: 9px;
+    font-size: 50px;
+    margin-left: -68px;
+}
+/*Imagem*/
+.img {
+    height: 230px;
+    width: 436px;
+    margin-left: -57px;
+    padding: -19px;
+    margin-top: 78px;
+    border-radius: 10px;
+}
+
+.col-md b {
+    font-size: 20px;
+    color: #9119D1;
+}
+
+.col-md {
+    margin-left: 800px;
+    margin-top: -274px;
+    height: 354px;
+    align-items: center;
+    position: absolute;
+}

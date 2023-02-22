@@ -1,0 +1,198 @@
+﻿@model ProjetoLojaCel.Models.ModelCliente
+@{
+    ViewBag.Title = "EditarCliente";
+
+    List<string> Sexo = new List<string>();
+    Sexo.Add("Masculino");
+    Sexo.Add("Feminino");
+
+    List<string> Estado = new List<string>();
+    Estado.Add("AC");
+    Estado.Add("AL");
+    Estado.Add("AP");
+    Estado.Add("AM");
+    Estado.Add("BA");
+    Estado.Add("CE");
+    Estado.Add("DF");
+    Estado.Add("ES");
+    Estado.Add("GO");
+    Estado.Add("MA");
+    Estado.Add("MT");
+    Estado.Add("MS");
+    Estado.Add("MG");
+    Estado.Add("PA");
+    Estado.Add("PB");
+    Estado.Add("PR");
+    Estado.Add("PE");
+    Estado.Add("PI");
+    Estado.Add("RJ");
+    Estado.Add("RN");
+    Estado.Add("RS");
+    Estado.Add("RO");
+    Estado.Add("RR");
+    Estado.Add("SC");
+    Estado.Add("SP");
+    Estado.Add("SE");
+    Estado.Add("TO");
+}
+
+<h2>Editar Cliente</h2>
+
+<div class="center">
+    @using (Html.BeginForm("EditarCliente", "Cliente", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.usuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.NomeCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomeCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.CpfCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CpfCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CpfCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.DataNascCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataNascCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DataNascCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.SexoCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.SexoCli, new MultiSelectList(Sexo), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SexoCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.EnderecoCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EnderecoCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EnderecoCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.NumeroCasaCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumeroCasaCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumeroCasaCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.CepCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CepCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CepCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.NmBairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NmBairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NmBairro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.NmEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.NmEstado, new MultiSelectList(Estado), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NmEstado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.EmailCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.CelularCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CelularCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CelularCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group space-around-flex">
+            <div class="">
+                @Html.LabelFor(model => model.TelefoneCli, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TelefoneCli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TelefoneCli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group center">
+            <div class="col-md-10">
+                @ViewBag.msg <br />
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Salvar Cliente" class="btn btn-success" />
+                        </div>
+                    </div>
+                </td>
+                <td> &nbsp; &nbsp; &nbsp; </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Voltar", "ConsCliente", "Cliente", new { @class = "btn btn-succes" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

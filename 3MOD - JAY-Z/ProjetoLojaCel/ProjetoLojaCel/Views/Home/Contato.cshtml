@@ -1,0 +1,94 @@
+﻿@model ProjetoLojaCel.Models.ModelContato
+
+@{
+    ViewBag.Title = "Contato";
+}
+<link href="~/Css/contato.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/b2bcb852c4.js" crossorigin="anonymous"></script>
+<script src="~/JavaScript/js.js"></script>
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+@using (Html.BeginForm("Contato", "Home", FormMethod.Post))
+{
+    <section>
+        <div class="contato">
+            <div class="row">
+                <div class="heading-title"> Fale conosco</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <ul class="list-inline">
+                            <li>
+                                <div class="contact">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <p> Endereço: R. Guaipá, 678 - Vila Leopoldina, <br> São Paulo - SP, 05089-000  </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <p> LojaCel@gmail.com </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact">
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <p> +11 99999-9999 <p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-box-inner">
+                        <form>
+                            <div class="form-group">
+                                @Html.EditorFor(x => x.NomeContato, new
+                               {
+                             htmlAttributes = new { id = "nome", senha = "txtSenha", type = "text", @class = "form-control", placeholder = "Digite o nome", required = "required", style = "text-align: left;" }
+                               })
+                                @Html.ValidationMessageFor(x => x.NomeContato, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(x => x.EmailContato, new
+                                {
+                              htmlAttributes = new { id = "email", senha = "txtSenha", type = "text", @class = "form-control", placeholder = "Digite o e-mail", required = "required", style = "text-align: left;" }
+                                })
+                                @Html.ValidationMessageFor(x => x.EmailContato, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(x => x.NumeroContato, new
+                                {
+                              htmlAttributes = new { id = "celular", senha = "txtSenha", type = "text", @class = "form-control", placeholder = "Digite o seu numero de Celular", OnKeyPress = "formatar('## #####-####', this)", maxLength = "13", required = "required", style = "text-align: left;" }
+                                })
+                                @Html.ValidationMessageFor(x => x.NumeroContato, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextAreaFor(x => x.MensagemContato, new {@class = "form-control", placeholder = "Deixe aqui seu comentário", required = "required", style = "resize: none; height: 125px; text-align: left;" })
+                                    @*@Html.TextAreaFor(x => x.MensagemContato, new
+                                     {
+                                   htmlAttributes = new { id = "email", senha = "txtSenha", @class = "form-control", placeholder = "Deixe aqui o seu comentário", required = "required" }
+                                     })
+                                    @Html.ValidationMessageFor(x => x.MensagemContato, "", new { @class = "text-danger" })*@
+                                </div>
+                            <button class="btn custom-button"> Enviar </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.324909557177!2d-46.72997518538489!3d-23.520813665980498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef8c1d371ec31%3A0x671c9325c275132e!2sETEC%20Prof%20Basilides%20de%20Godoy!5e0!3m2!1spt-BR!2sbr!4v1670361674908!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <br />
+}
+

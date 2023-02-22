@@ -1,0 +1,16 @@
+Colocar OnKeyPress - Feito
+
+Colocar ViewBag:
+	
+Login não encontrado
+Cadastro cliente
+
+Colocar um RetornaCadCarrinho
+
+
+Arrumar a marca do produto em "Detalhes"
+Tirar o SAVE de "Detalhes"
+Arrumar layout de VOLTAR em "Detalhes"
+Colocar R$ no VALOR em "Detalhes"
+Retirar o ESTOQUE em "Detalhes"
+

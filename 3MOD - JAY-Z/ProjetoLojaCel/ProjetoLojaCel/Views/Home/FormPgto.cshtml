@@ -1,0 +1,73 @@
+﻿@model ProjetoLojaCel.Models.ModelPagamento
+
+@{
+    ViewBag.Title = "FormPgto";
+}
+
+@using (Html.BeginForm("FormPgto", "Home", FormMethod.Post))
+{
+    <link href="~/Css/formpagto.css" rel="stylesheet" />
+    <script src="~/JavaScript/js.js"></script>
+
+    <div class="container">
+        <div class="row">
+        </div>
+        <form action="">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <h3 class="title">Digite os Dados do Cartão</h3>
+
+                    <div class="inputBox">
+                        <span>Cartões Aceito :</span>
+                        <img src="~/Imagens/cartoes.png" />
+                    </div>
+                    <div class="inputBox">
+                        <span>Nome do Cartão :</span>
+                        @Html.EditorFor(x => x.NomeCartao, new
+                        {
+                        htmlAttributes = new { id = "txtUsuario", senha = "txtUsuario", type = "text", @class = "form-control", placeholder = "Digite o nome do cartão", required = "required" }
+                        })
+                        @Html.ValidationMessageFor(x => x.NomeCartao, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="inputBox">
+                        <span>Número do Cartão :</span>
+                        @Html.EditorFor(x => x.NumeroCartao, new
+                        {
+                        htmlAttributes = new { id = "txtUsuario", senha = "txtUsuario", type = "text", @class = "form-control", placeholder = "XXXX XXXX XXXX XXXX", required = "required", maxLength = "19", OnKeyPress = "formatar('#### #### #### ####', this)" }
+                        })
+                        @Html.ValidationMessageFor(x => x.NumeroCartao, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="inputBox">
+                        <span>Data de Expiração :</span>
+                        @Html.EditorFor(x => x.DtExpiracao, new
+                        {
+                        htmlAttributes = new { id = "txtUsuario", senha = "txtUsuario", type = "text", @class = "form-control", placeholder = "Mês/Ano", required = "required", maxLength = "5", OnKeyPress = "formatar('##/##', this)" }
+                        })
+                        @Html.ValidationMessageFor(x => x.DtExpiracao, "", new { @class = "text-danger" })
+                    </div>
+                    
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        @Html.EditorFor(x => x.Cvv, new
+                        {
+                        htmlAttributes = new { id = "txtUsuario", senha = "txtUsuario", type = "text", @class = "form-control", placeholder = "XXX", required = "required", maxLength = "3" }
+                        })
+                        @Html.ValidationMessageFor(x => x.Cvv, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="btn custom-button"> Finalizar </button>
+
+        </form>
+
+    </div>
+
+    <br />
+}
+

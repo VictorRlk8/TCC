@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProjetoLojaCel.Models.ModelProduto>
+
+@{
+    ViewBag.Title = "ConsProduto";
+}
+
+<h2>Consulta de Produto</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NmProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VlProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarcaProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstoqueProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagemProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodTipoProduto)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarcaProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstoqueProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagemProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodTipoProduto)
+            </td>
+
+            <td>
+                @Html.ActionLink("Atualizar", "EditarProduto", new { id = item.CodProd }) |
+                @Html.ActionLink("Excluir", "excluirProduto", new { id = item.CodProd }, new { onclick = "return confirm('Deseja realmente excluir?');" })
+            </td>
+        </tr>
+    }
+
+</table>
+
